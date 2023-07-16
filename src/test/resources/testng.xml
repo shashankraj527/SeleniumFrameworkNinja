@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Dell/IdeaProjects/NInjaGit/SeleniumFrameworkNinja">
+        <classes>
+            <class name="Com.TestNG.NinjaQa.Test.LoginTest">
+                <methods>
+                    <include name="TC01verifyloginwithValidCredentials"/>
+                    <include name="TC02loginwithInvalidCredentials"/>
+                    <include name="TC03VeifyLoginvalidEmailAddressinvalidpassword"/>
+                    <include name="TC04VeifyLogininvalidEmailAddressvalidpassword"/>
+                    <include name="TC05WithoutProvidingCredentials"/>
+                </methods>
+            </class>
+            <class name="Com.TestNG.NinjaQa.Test.RegisterClass">
+                <methods>
+                    <include name="verifyRegisteringAnAccountwithMandatoryFields"/>
+                    <include name="verifyRegisteringAnAccountwithAllFields"/>
+                    <include name="verifyRegisteringAnAccountwithExistingEmailAddress"/>
+                    <include name="verifyRegisteringAnAccountWithoutFillingDetails"/>
+                </methods>
+            </class>
+            <class name="Com.TestNG.NinjaQa.Test.SearchTest">
+                <methods>
+                    <include name="verifySearchWithValidProduct"/>
+                    <include name="verifySearchWithInvalidProduct"/>
+                    <include name="verifySearchWithOutAnyProduct"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
