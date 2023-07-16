@@ -45,5 +45,6 @@ public class LoginTest {
             String expectedWarnifmessage="Warning: No match for E-Mail Address and/or Password.";
             Assert.assertTrue(actualwarningmessage.contains(expectedWarnifmessage),"Expected Warning message is not dispalyed");
             driver.quit();
+            driver.close();
         }
 }
