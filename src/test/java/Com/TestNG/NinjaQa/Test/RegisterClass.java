@@ -19,16 +19,11 @@ public class RegisterClass extends Base {
         driver=initailizeBrowser("firefox");
         driver.findElement(By.xpath("//span[contains(text(),'My Account')]")).click();
         driver.findElement(By.linkText("Register")).click();
-
     }
     @AfterMethod
     public void tearDown(){
         driver.quit();
-
     }
-
-
-
     @Test
     public void verifyRegisteringAnAccountwithMandatoryFields(){
         driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys("Prabha");
@@ -57,7 +52,6 @@ public class RegisterClass extends Base {
         String actualsuccessheading = driver.findElement(By.xpath("//h1[text()='Your Account Has Been Created!']")).getText();
         Assert.assertEquals(actualsuccessheading, "Your Account Has Been Created!", "Message:Account Not Created");
         System.out.println("actualsuccessheading");
-
     }
     @Test(priority = 3)
     public void verifyRegisteringAnAccountwithExistingEmailAddress() {
@@ -72,7 +66,6 @@ public class RegisterClass extends Base {
         driver.findElement(By.xpath("//input[@value='Continue']")).click();
         String actualWarningElment=driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
         Assert.assertTrue(actualWarningElment.contains("Warning: E-Mail Address is already registered!"),"Warning message regarding duplicate not displayed");
-
     }
     @Test(priority = 4)
     public void verifyRegisteringAnAccountWithoutFillingDetails() {
@@ -95,9 +88,5 @@ public class RegisterClass extends Base {
 
         String actualPasswordWarning=driver.findElement(By.xpath("//input[@id='input-password']/following-sibling::div")).getText();
         Assert.assertEquals(actualPasswordWarning,"Password must be between 4 and 20 characters!","Message:Password Warning not displayed");
-
-
     }
-
-
 }

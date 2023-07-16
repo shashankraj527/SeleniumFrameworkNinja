@@ -38,11 +38,7 @@ public class LoginTest extends Base {
         driver.findElement(By.id("input-password")).sendKeys("12345");
         driver.findElement(By.xpath("//body/div[@id='account-login']/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/input[1]")).click();
         Assert.assertTrue(driver.findElement(By.linkText("Edit your account information")).isDisplayed(), "Edit Your Account information when not displayed ");
-
-
-
     }
-
     @Test(priority=2)
     public void TC02loginwithInvalidCredentials() {
         driver.findElement(By.id("input-email")).sendKeys(Utils.generateEmailWithTimeStamp());
@@ -51,7 +47,6 @@ public class LoginTest extends Base {
         String actualwarningmessage = driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
         String expectedWarnifmessage = "Warning: No match for E-Mail Address and/or Password.";
         Assert.assertTrue(actualwarningmessage.contains(expectedWarnifmessage), "Expected Warning message is not dispalyed");
-
     }
     @Test(priority=3)
     public void TC03VeifyLoginvalidEmailAddressinvalidpassword(){
@@ -61,7 +56,6 @@ public class LoginTest extends Base {
         String actualwarningmessage = driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
         String expectedWarnifmessage = "Warning: No match for E-Mail Address and/or Password.";
         Assert.assertTrue(actualwarningmessage.contains(expectedWarnifmessage), "Expected Warning message is not dispalyed");
-
     }
     @Test(priority=4)
     public void TC04VeifyLogininvalidEmailAddressvalidpassword(){
@@ -80,7 +74,6 @@ public class LoginTest extends Base {
         String actualwarningmessage = driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
         String expectedWarnifmessage = "Warning: No match for E-Mail Address and/or Password.";
         Assert.assertTrue(actualwarningmessage.contains(expectedWarnifmessage), "Expected Warning message is not dispalyed");
-
     }
 
 }
