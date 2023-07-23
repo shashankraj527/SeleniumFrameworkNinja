@@ -34,8 +34,20 @@ public class LoginPage {
          passwordField.sendKeys(Passwordtxt);
 
      }
-     public void ClickLoginButton(){
+     /*
+     Changing Void to AccountPage
+     Due Which Line WIll get reduced in  loginTest
+      */
+     public AccountPage ClickLoginButton(){
+
+        ClickLoginButton.click();
+        return new AccountPage(driver);
+     }
+     public AccountPage login(String emailtxt,String Passwordtxt){
+         emailAddressField.sendKeys(emailtxt);
+         passwordField.sendKeys(Passwordtxt);
          ClickLoginButton.click();
+         return new AccountPage(driver);
      }
     public String WarningMessagedisplay(){
         String WarningText=NomatchforEMailPasswordWarning.getText();

@@ -84,8 +84,9 @@ public class RegisterPage {
         public void Privacypolicyfield(){
             privacypolicyfield.click();
         }
-        public void ContinueButton(){
-            ContinueButton.click();
+        public AccountSuccessPage ContinueButton(){
+        ContinueButton.click();
+        return new AccountSuccessPage(driver);
         }
         public String retrieveDuplicateEmailWarning(){
            String retrieveDuplicateEmailWarningText=DuplicateWarningMessage.getText();
@@ -116,5 +117,55 @@ public class RegisterPage {
         String passwordWarningText=PasswordWarningField.getText();
         return passwordWarningText;
         }
+        public AccountSuccessPage RegisterWithMAdatory(String firstnameText,String lastNameText,String emailText,String TelephoneText,String PasswordText,String ConfirmPasswordtxt){
+            firstnameField.sendKeys(firstnameText);
+            lastnamefield.sendKeys(lastNameText);
+            EmailAddressField.sendKeys(emailText);
+            TelephoneField.sendKeys(TelephoneText);
+            PasswordField.sendKeys(PasswordText);
+            ConfirmPasswordField.sendKeys(ConfirmPasswordtxt);
+            YesNewsLetter.click();
+            privacypolicyfield.click();
+            ContinueButton.click();
+            return new AccountSuccessPage(driver);
+        }
+    public AccountSuccessPage RegisterWithAllMAdatory(String firstnameText,String lastNameText,String emailText,String TelephoneText,String PasswordText) {
+        firstnameField.sendKeys(firstnameText);
+        lastnamefield.sendKeys(lastNameText);
+        EmailAddressField.sendKeys(emailText);
+        TelephoneField.sendKeys(TelephoneText);
+        PasswordField.sendKeys(PasswordText);
+        ConfirmPasswordField.sendKeys();
+        YesNewsLetter.click();
+        privacypolicyfield.click();
+        ContinueButton.click();
+        return new AccountSuccessPage(driver);
+        }
+        public boolean DisplayStatusofWariningMessage(String ExpectedPrivacyPolicyWarningfield,String ExpectedFirstNameWarningField,String ExpectedLastNameWarningField,String ExpectedEmailWarningField,String ExpectedTelephoneField,String ExpectedPasswordWarning ){
+
+            boolean PrivacyPolicyWarningfieldStatus=Privacypolicyfield.getText().contains(ExpectedPrivacyPolicyWarningfield);
+
+
+            boolean FirstNameWarningFieldStatus=FirstNameWarningField.getText().equals(ExpectedFirstNameWarningField);
+
+
+            boolean LastNameWarningFieldStatus=LastNameWarningField.getText().equals(ExpectedLastNameWarningField);
+
+
+            boolean EmailWarningFieldStatus=EmailWarningField.getText().equals(ExpectedEmailWarningField);
+
+
+            boolean TelephoneFieldStatus=TelephoneWarningField.getText().equals(ExpectedTelephoneField);
+
+
+            boolean PasswordWarningStatus=PasswordWarningField.getText().equals(ExpectedPasswordWarning);
+
+            return PrivacyPolicyWarningfieldStatus && FirstNameWarningFieldStatus && LastNameWarningFieldStatus && EmailWarningFieldStatus && TelephoneFieldStatus && PasswordWarningStatus;
+
+
+
+
+    }
+
     }
 

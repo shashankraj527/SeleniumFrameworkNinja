@@ -34,21 +34,46 @@ public class HomePage {
     public void clickOnMyAccount(){
         myAccountDropMenu.click();
     }
-    public void SelectLoginOption(){
+    /*
+    Changing Public void ---public login page
+    by loginpage as driver
+     */
+    public LoginPage SelectLoginOption(){
 
         Loginoption.click();
-        
+        return new LoginPage(driver);
+    }
+    public LoginPage navigateToLoginPage(){
+        myAccountDropMenu.click();
+        Loginoption.click();
+        return new LoginPage(driver);
     }
 
-    public void ClickOnRegister(){
+    public RegisterPage ClickOnRegister()
+    {
         RegisterOption.click();
+        return new RegisterPage(driver);
     }
 
     public void enterProductDetails(String productText){
         EnterSearchBoxFielddata.sendKeys(productText);
     }
 
-    public void ClickSearchBoxbutton() {
+    public SearchPage ClickSearchBoxbutton() {
         clickSearchBoxFieldbtn.click();
+        return new SearchPage(driver);
     }
+    public RegisterPage navigateRegisterPage(){
+        myAccountDropMenu.click();
+        RegisterOption.click();
+        return new RegisterPage(driver);
+
+    }
+    public SearchPage searchforAProduct(String productText){
+        EnterSearchBoxFielddata.sendKeys(productText);
+        clickSearchBoxFieldbtn.click();
+        return new SearchPage(driver);
+    }
+
+
 }

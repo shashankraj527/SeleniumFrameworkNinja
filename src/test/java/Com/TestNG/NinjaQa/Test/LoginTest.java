@@ -22,15 +22,19 @@ public class LoginTest extends Base {
     }
 // Author
     WebDriver driver;
+    LoginPage loginPage;
     @BeforeMethod
     public void setup(){
         //loadPropertiesfile();
         driver=initailizeBrowser(prop.getProperty("browserName"));
         HomePage homePage=new HomePage(driver);
-       // driver.findElement(By.xpath("//span[contains(text(),'My Account')]")).click();
-        homePage.clickOnMyAccount();
-      //  driver.findElement(By.linkText("Login")).click();
-        homePage.SelectLoginOption();
+        loginPage=homePage.navigateToLoginPage();
+        /*
+        Due Which repeative line
+         LoginPage loginPage=new LoginPage(driver);
+            Not need because it created globally
+         */
+         loginPage = homePage.SelectLoginOption();
 
     }
     @AfterMethod
@@ -42,12 +46,16 @@ public class LoginTest extends Base {
    // @Test(priority=1,dataProvider = "ValidCredentialsSupplier")
     @Test(priority = 1)
     public void TC01verifyloginwithValidCredentials() {
-        LoginPage loginPage=new LoginPage(driver);
-        loginPage.enterEmailAddress(Utils.generateEmailWithTimeStamp());
-        loginPage.enterPassword(prop.getProperty("ValidPassword"));
-        loginPage.ClickLoginButton();
+        /*
+        LoginPage loginPage;--->Need to set it to Global
+         */
+        loginPage.login(Utils.generateEmailWithTimeStamp(),dataProp.getProperty("ValidPassword")); /*
         AccountPage accountPage=new AccountPage(driver);
-       Assert.assertTrue(accountPage.getDisplayStatusOfEditAccountInformation(),"Edit your account information is not displayed");
+        Not need again now
+
+         */
+        //AccountPage accountPage=new AccountPage(driver);
+       //Assert.assertTrue(accountPage.getDisplayStatusOfEditAccountInformation(),"Edit your account information is not displayed");
 
     }
     /*
@@ -62,43 +70,24 @@ public class LoginTest extends Base {
 
     @Test(priority=2)
     public void TC02loginwithInvalidCredentials() {
-        LoginPage loginPage=new LoginPage(driver);
-        loginPage.enterEmailAddress(Utils.generateEmailWithTimeStamp());
-        loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
-        loginPage.ClickLoginButton();
-        String actualwarningmessage = loginPage.WarningMessagedisplay();
-        String expectedWarningmessage = dataProp.getProperty("emailPasswordNoMatchWarning");
-       Assert.assertTrue(actualwarningmessage.contains(expectedWarningmessage), "Expected Warning message is not dispalyed");
+        loginPage.login(Utils.generateEmailWithTimeStamp(),dataProp.getProperty("invalidPassword"));
+        Assert.assertTrue(loginPage.WarningMessagedisplay().contains(dataProp.getProperty("emailPasswordNoMatchWarning")), "Expected Warning message is not dispalyed");
     }
     @Test(priority=3)
     public void TC03VeifyLoginvalidEmailAddressvalidpassword(){
-        LoginPage loginPage=new LoginPage(driver);
-        loginPage.enterEmailAddress("");
-        loginPage.enterPassword(prop.getProperty("ValidPassword"));
-        loginPage.ClickLoginButton();
-        String actualwarningmessage = loginPage.WarningMessagedisplay();
-        String expectedWarningmessage = dataProp.getProperty("emailPasswordNoMatchWarning");
-        Assert.assertTrue(actualwarningmessage.contains(expectedWarningmessage), "Expected Warning message is not dispalyed");
+        loginPage.login("",dataProp.getProperty("invalidPassword"));
+        Assert.assertTrue(loginPage.WarningMessagedisplay().contains(dataProp.getProperty("emailPasswordNoMatchWarning")), "Expected Warning message is not dispalyed");
     }
     @Test(priority=4)
     public void TC04VeifyLoginvalidEmailAddressvalidpassword(){
-        LoginPage loginPage=new LoginPage(driver);
-        loginPage.enterEmailAddress(Utils.generateEmailWithTimeStamp());
-        loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
-        loginPage.ClickLoginButton();
-        String actualwarningmessage = loginPage.WarningMessagedisplay();
-        String expectedWarningmessage = dataProp.getProperty("emailPasswordNoMatchWarning");
-        Assert.assertTrue(actualwarningmessage.contains(expectedWarningmessage), "Expected Warning message is not dispalyed");
+        loginPage.login(prop.getProperty("invalidEMail"), dataProp.getProperty("invalidPassword"));
+        Assert.assertTrue(loginPage.WarningMessagedisplay().contains(dataProp.getProperty("emailPasswordNoMatchWarning")), "Expected Warning message is not dispalyed");
     }
     @Test(priority=5)
     public void TC05WithoutProvidingCredentials(){
-        LoginPage loginPage=new LoginPage(driver);
-        loginPage.enterEmailAddress(Utils.generateEmailWithTimeStamp());
-        loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
+
         loginPage.ClickLoginButton();
-        String actualwarningmessage = loginPage.WarningMessagedisplay();
-        String expectedWarningmessage = dataProp.getProperty("emailPasswordNoMatchWarning");
-        Assert.assertTrue(actualwarningmessage.contains(expectedWarningmessage), "Expected Warning message is not dispalyed");
+         Assert.assertTrue(loginPage.WarningMessagedisplay().contains(dataProp.getProperty("emailPasswordNoMatchWarning")), "Expected Warning message is not dispalyed");
     }
 
 }
