@@ -23,20 +23,20 @@ public class Mylistener implements ITestListener {
     @Override
     public void onStart(ITestContext context){
          extentReport = ExtentReport.generateExtentReport();
-    System.out.println("Execution of Project Tests Started");
+
     }
     @Override
     public void onTestStart(ITestResult result) {
      String testName= result.getName();
          extentTest = extentReport.createTest(testName);
         extentTest.log(Status.INFO,testName+" Started executing ");
-     System.out.println(testName+"Started executing");
+
     }
     @Override
     public  void onTestSuccess(ITestResult result) {
         String testName=result.getName();
          extentTest.log(Status.PASS,testName+" got successfully executed ");
-        System.out.println(testName+"got successfully executed");
+
     }
 
     @Override
@@ -72,7 +72,6 @@ public class Mylistener implements ITestListener {
     @Override
     public void onFinish(ITestContext context){
         extentReport.flush();
-
     }
 
 }

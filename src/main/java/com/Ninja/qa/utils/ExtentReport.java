@@ -13,7 +13,7 @@ public class ExtentReport {
     public static ExtentReports generateExtentReport()  {
         ExtentReports extentReports=new ExtentReports();
 
-        File externtReportFile=new File(System.getProperty("user.dir")+"\\Test-Output\\ExtentReports\\extentReports.html");
+        File externtReportFile=new File(System.getProperty("user.dir")+"\\Test-Output\\ExtentReports\\extentreports.html");
         ExtentSparkReporter sparkReporter=new ExtentSparkReporter(externtReportFile);
 
         sparkReporter.config().setTheme(Theme.DARK);
@@ -26,8 +26,8 @@ public class ExtentReport {
         Properties configProp=new Properties();
         File configPropfile=new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\Ninja\\qa\\config\\config.properties");
         try {
-            FileInputStream fisconfigprop = new FileInputStream(configPropfile);
-            configProp.load(fisconfigprop);
+            FileInputStream ConfigParser = new FileInputStream(configPropfile);
+            configProp.load(ConfigParser);
         }catch (Throwable e){
             e.printStackTrace();
         }

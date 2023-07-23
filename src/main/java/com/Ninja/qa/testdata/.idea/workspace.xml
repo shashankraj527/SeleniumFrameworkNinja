@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ffe6fa18-95b3-4934-b5a9-aaafca7afcf2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../target/classes/com/Ninja/qa/pageobjects/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../target/classes/com/Ninja/qa/pageobjects/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../target/classes/com/Ninja/qa/utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../target/classes/com/Ninja/qa/utils/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../target/test-classes/Com/TestNG/NinjaQa/Test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../target/test-classes/Com/TestNG/NinjaQa/Test/LoginTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../target/test-classes/Com/TestNG/NinjaQa/Test/RegisterClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../target/test-classes/Com/TestNG/NinjaQa/Test/RegisterClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../target/test-classes/Com/TestNG/NinjaQa/Test/SearchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../target/test-classes/Com/TestNG/NinjaQa/Test/SearchTest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2SyS6M5gUCbVSPVwmw7m3YapkzF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Dell/IdeaProjects/NInjaGit/SeleniumFrameworkNinja"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ffe6fa18-95b3-4934-b5a9-aaafca7afcf2" name="Changes" comment="" />
+      <created>1690117150394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690117150394</updated>
+    </task>
+    <servers />
+  </component>
+</project>
