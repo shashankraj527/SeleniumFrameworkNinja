@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class RegisterClass extends Base {
-    WebDriver driver;
+   public WebDriver driver;
     RegisterPage reg;
     AccountSuccessPage asp;
     public RegisterClass(){
@@ -40,6 +40,8 @@ public class RegisterClass extends Base {
     }
     @Test(priority = 2)
     public void verifyRegisteringAnAccountwithAllFields() {
+        asp= reg.RegisterWithMAdatory(dataProp.getProperty("firstName"),dataProp.getProperty("lastName"),Utils.generateEmailWithTimeStamp(),dataProp.getProperty("telephoneNumber"),prop.getProperty("ValidPassword"),prop.getProperty("ValidPassword"));
+        String actualsuccessheading= asp.retrieveaccountSuccessPageHeading();
 
         Assert.assertEquals(asp.retrieveaccountSuccessPageHeading(), dataProp.getProperty("accountSuccessfullyCreatedHeading"), "Message:Account Not Created");
     }

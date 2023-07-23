@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SearchTest extends Base {
-    WebDriver driver;
+   public WebDriver driver;
     SearchPage sp;
     HomePage homePage;
     public  SearchTest(){
@@ -21,7 +21,7 @@ public class SearchTest extends Base {
     @BeforeMethod
     public void setup(){
         driver=initailizeBrowser(prop.getProperty("browserName"));
-
+         homePage=new HomePage(driver);
 
     }
     @AfterMethod
@@ -32,26 +32,22 @@ public class SearchTest extends Base {
 
     @Test(priority = 1)
     public void verifySearchWithValidProduct(){
-        homePage.searchforAProduct(dataProp.getProperty("ValidProduct"));
 
-        sp=homePage.ClickSearchBoxbutton();
-
+      sp=homePage.NavigatesearchforAProduct(dataProp.getProperty("ValidProduct"));
         Assert.assertTrue(sp.DisplayStatusValidProduct(),"valid not product displayed");
 
     }
     @Test(priority = 2)
     public void verifySearchWithInvalidProduct(){
-        HomePage homePage=new HomePage(driver);
-        homePage.searchforAProduct(dataProp.getProperty("InValidProduct"));
 
-        sp=homePage.ClickSearchBoxbutton();
-        Assert.assertEquals(sp.NoproductmatchesthesearchcriteriaText(),dataProp.getProperty("WarningMessage"),"No product in search results found");
+       sp= homePage.NavigatesearchforAProduct(dataProp.getProperty("InValidProduct"));
+       //Assert.assertEquals(sp.NoproductmatchesthesearchcriteriaText(),dataProp.getProperty("WarningMessage"),"No product in search results found");
+        Assert.assertEquals(sp.NoproductmatchesthesearchcriteriaText(),"abcdefghi","No product in search results found");
+
     }
-    @Test(priority = 3)
+    @Test(priority = 3,dependsOnMethods ={"verifySearchWithInvalidProduct"})
     public void verifySearchWithOutAnyProduct(){
-        HomePage homePage=new HomePage(driver);
-        homePage.enterProductDetails(dataProp.getProperty(""));
-        sp=homePage.ClickSearchBoxbutton();
-        Assert.assertEquals(sp.NoproductmatchesthesearchcriteriaText(),dataProp.getProperty("WarningMessage"),"No product in search results found");
+        sp= homePage.NavigatesearchforAProduct("");
+       Assert.assertEquals(sp.NoproductmatchesthesearchcriteriaText(),dataProp.getProperty("WarningMessage"),"No product in search results found");
     }
 }

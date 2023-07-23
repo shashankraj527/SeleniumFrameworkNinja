@@ -59,7 +59,8 @@ public class HomePage {
         EnterSearchBoxFielddata.sendKeys(productText);
     }
 
-    public SearchPage ClickSearchBoxbutton() {
+    public SearchPage Navigatesearch() {
+        clickSearchBoxFieldbtn.click();
         clickSearchBoxFieldbtn.click();
         return new SearchPage(driver);
     }
@@ -69,7 +70,7 @@ public class HomePage {
         return new RegisterPage(driver);
 
     }
-    public SearchPage searchforAProduct(String productText){
+    public SearchPage NavigatesearchforAProduct(String productText){
         EnterSearchBoxFielddata.sendKeys(productText);
         clickSearchBoxFieldbtn.click();
         return new SearchPage(driver);

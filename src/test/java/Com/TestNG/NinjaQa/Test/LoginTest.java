@@ -21,7 +21,7 @@ public class LoginTest extends Base {
         super();
     }
 // Author
-    WebDriver driver;
+   public WebDriver driver;
     LoginPage loginPage;
     @BeforeMethod
     public void setup(){

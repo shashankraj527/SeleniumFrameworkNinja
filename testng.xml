@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <listeners>
-        <listener class-name="com.Ninja.qa.Listeners.Mylistener"></listener>
-    </listeners>
-    <test verbose="2" preserve-order="true" name="C:/Users/Dell/IdeaProjects/NInjaGit/SeleniumFrameworkNinja">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Dell/IdeaProjects/NInjaGit/SeleniumFrameworkNinja/src/test/java/Com/TestNG/NinjaQa/Test/LoginTest.java">
         <classes>
             <class name="Com.TestNG.NinjaQa.Test.LoginTest">
                 <methods>
@@ -15,19 +13,29 @@
                     <include name="TC05WithoutProvidingCredentials"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Dell/IdeaProjects/NInjaGit/SeleniumFrameworkNinja/src/test/java/Com/TestNG/NinjaQa/Test/SearchTest.java">
+        <classes>
+            <class name="Com.TestNG.NinjaQa.Test.SearchTest">
+                <methods>
+                    <include name="verifySearchWithValidProduct"/>
+                    <include name="verifySearchWithInvalidProduct"/>
+                    <include name="verifySearchWithOutAnyProduct"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Dell/IdeaProjects/NInjaGit/SeleniumFrameworkNinja/src/test/java/Com/TestNG/NinjaQa/Test/RegisterClass.java">
+        <classes>
             <class name="Com.TestNG.NinjaQa.Test.RegisterClass">
                 <methods>
                     <include name="verifyRegisteringAnAccountwithMandatoryFields"/>
                     <include name="verifyRegisteringAnAccountwithAllFields"/>
                     <include name="verifyRegisteringAnAccountwithExistingEmailAddress"/>
                     <include name="verifyRegisteringAnAccountWithoutFillingDetails"/>
-                </methods>
-            </class>
-            <class name="Com.TestNG.NinjaQa.Test.SearchTest">
-                <methods>
-                    <include name="verifySearchWithValidProduct"/>
-                    <include name="verifySearchWithInvalidProduct"/>
-                    <include name="verifySearchWithOutAnyProduct"/>
                 </methods>
             </class>
         </classes>
