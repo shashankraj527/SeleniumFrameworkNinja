@@ -5,18 +5,17 @@ import com.Ninja.qa.pageobjects.AccountSuccessPage;
 import com.Ninja.qa.pageobjects.HomePage;
 import com.Ninja.qa.pageobjects.RegisterPage;
 import com.Ninja.qa.utils.Utils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class RegisterClass extends Base {
+public class RegisterTest extends Base {
    public WebDriver driver;
     RegisterPage reg;
     AccountSuccessPage asp;
-    public RegisterClass(){
+    public RegisterTest(){
 
         super();
     }

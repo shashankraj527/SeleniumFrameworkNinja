@@ -5,9 +5,14 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 
@@ -22,7 +27,7 @@ public class Utils {
         String timestamp = date.toString().replace(" ", "_").replace(":", "_");
         return "kalyanshaan25" + timestamp + "@gmail.com";
     }
-}
+
    /* public static Object[][] getTestDataFromExcel(String sheetName){
         File excelFile=new File(System.getProperty(("user.dir")+"\\src\\main\\java\\com\\Ninja\\qa\\testdata\\AutomationTestData.xlsx"));
         XSSFWorkbook workbook = null;
@@ -64,3 +69,14 @@ public class Utils {
 }
 
     */
+public static String captureScreenShot(WebDriver driver,String testName) {
+    File srcScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    String destinationScreenShotPath = System.getProperty("user.dir") + "\\Screenshots\\" + testName + ".png";
+    try {
+        FileHandler.copy(srcScreenshot, new File(destinationScreenShotPath));
+    } catch (IOException e) {
+        e.printStackTrace();
+        }
+    return destinationScreenShotPath;
+    }
+}

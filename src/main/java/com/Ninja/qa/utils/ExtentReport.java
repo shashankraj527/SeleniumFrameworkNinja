@@ -13,7 +13,7 @@ public class ExtentReport {
     public static ExtentReports generateExtentReport()  {
         ExtentReports extentReports=new ExtentReports();
 
-        File externtReportFile=new File(System.getProperty("user.dir")+"\\Test-Output\\ExtentReports\\extentreports.html");
+        File externtReportFile=new File(System.getProperty("user.dir")+"\\Test-Output\\ExtentReports\\extentrepor1.html");
         ExtentSparkReporter sparkReporter=new ExtentSparkReporter(externtReportFile);
 
         sparkReporter.config().setTheme(Theme.DARK);
